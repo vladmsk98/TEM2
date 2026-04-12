@@ -48,6 +48,18 @@ body {
     0 0 24px rgba(0, 30, 50, 0.6),
     inset 0 0 14px rgba(0, 0, 0, 0.7);
   border: 1px solid var(--border-strong);
+  position: relative; /* Обязательно для ::after */
+}
+
+.release-card::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 24px;
+  background: linear-gradient(to bottom, transparent, var(--ocean-dark));
+  pointer-events: none; /* Не мешает кликам */
 }
 
 .cover {
@@ -56,6 +68,14 @@ body {
   border-radius: 12px;
   margin: 0 auto 22px;
   box-shadow: 0 0 22px rgba(0, 30, 50, 0.5);
+  /* Добавляем переход */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* При наведении — только на устройствах с мышью/тачпадом */
+.cover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 28px rgba(0, 30, 50, 0.7);
 }
 
 .track-title {
@@ -78,6 +98,33 @@ body {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.meta-highlight {
+  color: var(--foam-light);
+  font-weight: 500;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.meta-highlight::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(240, 246, 251, 0.3);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.meta-highlight:hover {
+  color: var(--foam-light);
+}
+
+.meta-highlight:hover::after {
+  opacity: 1;
 }
 
 .audio-player {
