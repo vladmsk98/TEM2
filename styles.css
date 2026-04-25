@@ -386,6 +386,92 @@ body {
   background: rgba(100, 200, 255, 0.6);
 }
 
+/* === Система оценки треков === */
+.rating-section {
+  margin-top: 20px;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  text-align: center;
+}
+
+.rating-section p {
+  margin-bottom: 10px;
+  color: var(--wave-gray);
+  font-size: 0.95rem;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.star {
+  font-size: 1.5rem;
+  color: #444;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.star:hover,
+.star.active {
+  color: gold;
+}
+
+.rating-display {
+  font-size: 0.9rem;
+  color: var(--wave-gray);
+}
+
+/* === Адаптивная таблица сравнения === */
+.comparison-list {
+  margin-top: 16px;
+}
+
+.comparison-item {
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.comparison-item:last-child {
+  border-bottom: none;
+}
+
+.comparison-item h4 {
+  margin: 0 0 8px;
+  color: var(--wave-gray);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.comparison-values {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.value {
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.value.ai {
+  background: rgba(255, 0, 100, 0.1);
+  color: #ff66aa;
+  border-left: 3px solid #ff66aa;
+}
+
+.value.human {
+  background: rgba(100, 200, 255, 0.1);
+  color: #66ccff;
+  border-left: 3px solid #66ccff;
+}
+
 /* Адаптивность */
 @media (max-width: 600px) {
   .release-card {
@@ -400,5 +486,12 @@ body {
   }
   .cover {
     margin-bottom: 18px;
+  }
+  .comparison-values {
+    flex-direction: row;
+    gap: 24px;
+  }
+  .value {
+    flex: 1;
   }
 }
